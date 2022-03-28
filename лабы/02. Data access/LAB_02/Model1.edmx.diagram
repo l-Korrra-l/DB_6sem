@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d7c33412f0bf467a91f2b95b6e344e52" Name="Diagram1">
+        <EntityTypeShape EntityType="Exec_controlModel.CUSTOMERS" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.OFFICES" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.ORDERS" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.PRODUCTS" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.SALESREPRS" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.ORDERS_CART" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.current_ordv" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.DELIVERED_ORDERS" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.managers" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Exec_controlModel.overdue_ordv" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="Exec_controlModel.HASREP" ManuallyRouted="false" />
+        <AssociationConnector Association="Exec_controlModel.PLACEDBY" ManuallyRouted="false" />
+        <AssociationConnector Association="Exec_controlModel.WORKSIN" ManuallyRouted="false" />
+        <AssociationConnector Association="Exec_controlModel.ORDER_FOR" ManuallyRouted="false" />
+        <AssociationConnector Association="Exec_controlModel.TAKENBY" ManuallyRouted="false" />
+        <AssociationConnector Association="Exec_controlModel.ISFOR" ManuallyRouted="false" />
+        <AssociationConnector Association="Exec_controlModel.FK__SALESREPR__MANAG__31EC6D26" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

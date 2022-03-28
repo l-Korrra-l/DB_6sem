@@ -1,0 +1,151 @@
+﻿<Window x:Class="LAB_02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB_02"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.617"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-2.262"/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+            <TabItem Header="Products">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="147*"/>
+                        <ColumnDefinition Width="641*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="labelIdProd" Content="Product id" Margin="23,10,24.39,338"/>
+                    <TextBox x:Name="textBoxIdProd" HorizontalAlignment="Left" Height="31" Margin="97,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.ColumnSpan="2"/>
+
+                    <Label x:Name="labelDescrProd" Content="Description" Margin="23,55,32.39,296"/>
+                    <TextBox x:Name="textBoxDescrProd" HorizontalAlignment="Left" Height="31" Margin="97,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.ColumnSpan="2"/>
+
+                    <Label x:Name="labelPriceProd" Content="Price" Margin="23,103,38.39,253"/>
+                    <TextBox x:Name="textBoxPriceProd" HorizontalAlignment="Left" Height="31" Margin="97,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.ColumnSpan="2"/>
+
+                    <Label x:Name="labelAvailProd" Content="Availible amount" Margin="11,153,50.39,203"/>
+                    <TextBox x:Name="textBoxAvailProd" HorizontalAlignment="Left" Height="31" Margin="97,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.ColumnSpan="2"/>
+
+                    <DataGrid x:Name="usersGrid" HorizontalAlignment="Left" Height="214" Margin="-4,227,0,-49" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="addProd" Content="add" Margin="185.61,10,324,338" Click="addProd_Click" Grid.Column="1"></Button>
+                    <Button x:Name="dropProd" Content="delete" Margin="185.61,59,324,286" Click="dropProd_Click" Grid.Column="1"/>
+                    <Button x:Name="changeProd" Content="Update" Margin="185.61,111,324,234" Click="changeProd_Click" Grid.Column="1"/>
+                    <Button x:Name="allProds" Content="all products" Margin="185.61,163,324,188" Click="allProds_Click" Grid.Column="1" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Orders">
+                <Grid>
+                    <Label x:Name="labelIdOrder" Content="Order id" Margin="23,10,665,338" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxIdOrder" HorizontalAlignment="Left" Height="31" Margin="97,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelCustOrder" Content="Cust_id" Margin="23,55,673,296" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxCustOrder" HorizontalAlignment="Left" Height="31" Margin="97,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelPriceOrder" Content="Repr" Margin="23,103,679,253" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxReprOrder" HorizontalAlignment="Left" Height="31" Margin="97,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelAvailOrder" Content="Total cost" Margin="11,153,691,203"/>
+                    <TextBox x:Name="textBoxCostOrder" HorizontalAlignment="Left" Height="31" Margin="97,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelDateOrder" Content="Delivered" Margin="11,194,-11,-194"/>
+                    <DatePicker x:Name="textBoxCDayOrder" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="178" Margin="97,191,0,0"/>
+
+                    <DataGrid x:Name="usersGridOrder" HorizontalAlignment="Left" Height="214" Margin="-4,227,-6,-3" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="5"/>
+
+                    <Button x:Name="addOrder" Content="add" Margin="333,10,324,338" Click="addOrder_Click" Grid.Column="3"></Button>
+                    <Button x:Name="dropOrder" Content="delete" Margin="333,59,324,286" Click="dropOrder_Click" Grid.Column="3"/>
+                    <Button x:Name="changeOrder" Content="Update" Margin="333,111,324,234" Click="changeOrder_Click" Grid.Column="3"/>
+                    <Button x:Name="allOrders" Content="all Orders" Margin="333,163,324,188" Click="allOrders_Click" Grid.Column="3"/>
+                    <Button x:Name="currentOrd" Content="Current Orders" Margin="481,12,176,339" Click="curOrders_Click" Grid.Column="4"/>
+                    <Button x:Name="overOrd" Content="Overdue Orders" Margin="481,62,176,289" Click="overOrders_Click" Grid.Column="4"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Customers">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="79*"/>
+                        <ColumnDefinition Width="709*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="labelIdCustomer" Content="Customer id" Margin="23,10,665,338" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxIdCustomer" HorizontalAlignment="Left" Height="31" Margin="18.404,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelCustCustomer" Content="Comp_id" Margin="23,55,673,296" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxCompCustomer" HorizontalAlignment="Left" Height="31" Margin="18.404,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelPriceCustomer" Content="CUST_REP" Margin="23,103,679,253" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxReprCustomer" HorizontalAlignment="Left" Height="31" Margin="18.404,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelAvailCustomer" Content="CREDIT_LIMIT" Margin="11,153,691,203" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBoxCredCustomer" HorizontalAlignment="Left" Height="31" Margin="18.404,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <DataGrid x:Name="usersGridCustomer" HorizontalAlignment="Left" MinHeight="214" Margin="-4,227,0,-49" VerticalAlignment="Top" MinWidth="792" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="addCustomer" Content="add" Margin="254.404,10,324,338" Click="addCustomer_Click" Grid.Column="1"></Button>
+                    <Button x:Name="dropCustomer" Content="delete" Margin="254.404,59,324,286" Click="dropCustomer_Click" Grid.Column="1"/>
+                    <Button x:Name="changeCustomer" Content="Update" Margin="254.404,111,324,234" Click="changeCustomer_Click" Grid.Column="1"/>
+                    <Button x:Name="allCustomers" Content="all Customers" Margin="254.404,163,324,188" Click="allCustomers_Click" Grid.Column="1" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="SalesReps">
+                <Grid>
+                    <Label x:Name="labelIdSalesReps" Content="SalesReps id" Margin="23,10,665,338" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxIdSalesReps" HorizontalAlignment="Left" Height="31" Margin="97,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelCustSalesReps" Content="Name" Margin="23,55,673,296" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxNameSalesReps" HorizontalAlignment="Left" Height="31" Margin="97,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelPriceSalesReps" Content="OFFICE" Margin="23,103,679,253" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxOficeSalesReps" HorizontalAlignment="Left" Height="31" Margin="97,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelAvailSalesReps" Content="Sales" Margin="11,144,691,212"/>
+                    <TextBox x:Name="textBoxSalesSalesReps" HorizontalAlignment="Left" Height="31" Margin="97,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178"/>
+
+                    <Label x:Name="labelManagerSalesReps" Content="Manager" Margin="11,189,691,167"/>
+                    <TextBox x:Name="textBoxManagerSalesReps" HorizontalAlignment="Left" Height="31" Margin="97,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178"/>
+
+                    <DataGrid x:Name="usersGridSalesReps" HorizontalAlignment="Left" Height="214" Margin="-4,227,-6,-3" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="addSalesReps" Content="add" Margin="333,10,324,338" Click="addSalesReps_Click" Grid.Column="3"></Button>
+                    <Button x:Name="dropSalesReps" Content="delete" Margin="333,59,324,286" Click="dropSalesReps_Click"/>
+                    <Button x:Name="changeSalesReps" Content="Update" Margin="333,111,324,234" Click="changeSalesReps_Click"/>
+                    <Button x:Name="allSalesRepss" Content="all SalesRepss" Margin="333,163,324,188" Click="allSalesRepss_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Offices">
+                <Grid>
+                    <Label x:Name="labelIdOffice" Content="Office id" Margin="23,10,665,338" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxIdOffice" HorizontalAlignment="Left" Height="31" Margin="97,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelCustOffice" Content="City" Margin="23,55,673,296" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxCityOffice" HorizontalAlignment="Left" Height="31" Margin="97,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelPriceOffice" Content="Region" Margin="23,103,679,253" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxRegionOffice" HorizontalAlignment="Left" Height="31" Margin="97,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <Label x:Name="labelAvailOffice" Content="Sales" Margin="11,153,691,203"/>
+                    <TextBox x:Name="textBoxSalesOffice" HorizontalAlignment="Left" Height="31" Margin="97,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+                    <DataGrid x:Name="usersGridOffice" HorizontalAlignment="Left" Height="214" Margin="-4,227,-6,-3" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="addOffice" Content="add" Margin="333,10,324,338" Click="addOffice_Click" Grid.Column="3"></Button>
+                    <Button x:Name="dropOffice" Content="delete" Margin="333,59,324,286" Click="dropOffice_Click"/>
+                    <Button x:Name="changeOffice" Content="Update" Margin="333,111,324,234" Click="changeOffice_Click"/>
+                    <Button x:Name="allOffices" Content="all Offices" Margin="333,163,324,188" Click="allOffices_Click" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

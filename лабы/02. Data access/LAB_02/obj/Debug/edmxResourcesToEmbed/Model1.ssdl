@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Exec_controlModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CUSTOMERS">
+    <Key>
+      <PropertyRef Name="CUST_NUM" />
+    </Key>
+    <Property Name="CUST_NUM" Type="int" Nullable="false" />
+    <Property Name="COMPANY" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CUST_REP" Type="int" />
+    <Property Name="CREDIT_LIMIT" Type="decimal" Precision="9" Scale="2" />
+  </EntityType>
+  <EntityType Name="OFFICES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CITY" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="REGION" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SALES" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUST" Type="int" Nullable="false" />
+    <Property Name="REPRES" Type="int" />
+    <Property Name="TOTAL_COST" Type="decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="ORDER_DATE" Type="date" Nullable="false" />
+    <Property Name="PLANNED_D_DAY" Type="date" Nullable="false" />
+    <Property Name="PAY_DATE" Type="date" />
+    <Property Name="CUST_CONFIRM" Type="date" />
+    <Property Name="SENDED" Type="date" />
+    <Property Name="ENTER_COUNTR" Type="date" />
+    <Property Name="POST_OFICE" Type="date" />
+    <Property Name="DELIVERED" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Exec_control.dbo.ORDERS_CART' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ORDERS_CART">
+    <Key>
+      <PropertyRef Name="PROD_ID" />
+    </Key>
+    <Property Name="ORD_ID" Type="int" />
+    <Property Name="PROD_ID" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="PROD_COUNT" Type="int" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRICE" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="AVAIL" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SALESREPRS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AGE" Type="int" />
+    <Property Name="OFFICE" Type="int" />
+    <Property Name="POSITION" Type="varchar" MaxLength="10" />
+    <Property Name="HIRE_DATE" Type="date" Nullable="false" />
+    <Property Name="MANAGER" Type="int" />
+    <Property Name="SALES" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Exec_control.dbo.current_ordv' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="current_ordv">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CUST" />
+      <PropertyRef Name="TOTAL_COST" />
+      <PropertyRef Name="ORDER_DATE" />
+      <PropertyRef Name="PLANNED_D_DAY" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUST" Type="int" Nullable="false" />
+    <Property Name="REPRES" Type="int" />
+    <Property Name="TOTAL_COST" Type="decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="ORDER_DATE" Type="date" Nullable="false" />
+    <Property Name="PLANNED_D_DAY" Type="date" Nullable="false" />
+    <Property Name="PAY_DATE" Type="date" />
+    <Property Name="CUST_CONFIRM" Type="date" />
+    <Property Name="SENDED" Type="date" />
+    <Property Name="ENTER_COUNTR" Type="date" />
+    <Property Name="POST_OFICE" Type="date" />
+    <Property Name="DELIVERED" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Exec_control.dbo.DELIVERED_ORDERS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DELIVERED_ORDERS">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="PRODUCT" />
+      <PropertyRef Name="CUST" />
+      <PropertyRef Name="ORDER_DATE" />
+    </Key>
+    <Property Name="ID" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="PRODUCT" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="CUST" Type="int" Nullable="false" />
+    <Property Name="ORDER_DATE" Type="date" Nullable="false" />
+    <Property Name="DELIVERED" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Exec_control.dbo.managers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="managers">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="NAME" />
+      <PropertyRef Name="HIRE_DATE" />
+      <PropertyRef Name="SALES" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AGE" Type="int" />
+    <Property Name="OFFICE" Type="int" />
+    <Property Name="POSITION" Type="varchar" MaxLength="10" />
+    <Property Name="HIRE_DATE" Type="date" Nullable="false" />
+    <Property Name="MANAGER" Type="int" />
+    <Property Name="SALES" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Exec_control.dbo.overdue_ordv' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="overdue_ordv">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CUST" />
+      <PropertyRef Name="TOTAL_COST" />
+      <PropertyRef Name="ORDER_DATE" />
+      <PropertyRef Name="PLANNED_D_DAY" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUST" Type="int" Nullable="false" />
+    <Property Name="REPRES" Type="int" />
+    <Property Name="TOTAL_COST" Type="decimal" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="ORDER_DATE" Type="date" Nullable="false" />
+    <Property Name="PLANNED_D_DAY" Type="date" Nullable="false" />
+    <Property Name="PAY_DATE" Type="date" />
+    <Property Name="CUST_CONFIRM" Type="date" />
+    <Property Name="SENDED" Type="date" />
+    <Property Name="ENTER_COUNTR" Type="date" />
+    <Property Name="POST_OFICE" Type="date" />
+    <Property Name="DELIVERED" Type="date" />
+  </EntityType>
+  <Association Name="FK__SALESREPR__MANAG__31EC6D26">
+    <End Role="SALESREPRS" Type="Self.SALESREPRS" Multiplicity="0..1" />
+    <End Role="SALESREPRS1" Type="Self.SALESREPRS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALESREPRS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SALESREPRS1">
+        <PropertyRef Name="MANAGER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HASREP">
+    <End Role="SALESREPRS" Type="Self.SALESREPRS" Multiplicity="0..1" />
+    <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALESREPRS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CUSTOMERS">
+        <PropertyRef Name="CUST_REP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ISFOR">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="ORDERS_CART" Type="Self.ORDERS_CART" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS_CART">
+        <PropertyRef Name="PROD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDER_FOR">
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="0..1" />
+    <End Role="ORDERS_CART" Type="Self.ORDERS_CART" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS_CART">
+        <PropertyRef Name="ORD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PLACEDBY">
+    <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMERS">
+        <PropertyRef Name="CUST_NUM" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="CUST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TAKENBY">
+    <End Role="SALESREPRS" Type="Self.SALESREPRS" Multiplicity="0..1" />
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALESREPRS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="REPRES" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WORKSIN">
+    <End Role="OFFICES" Type="Self.OFFICES" Multiplicity="0..1" />
+    <End Role="SALESREPRS" Type="Self.SALESREPRS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OFFICES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SALESREPRS">
+        <PropertyRef Name="OFFICE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ADDPROD_TO_CART" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ORDER_ID" Type="int" Mode="In" />
+    <Parameter Name="PRODUCT_ID" Type="char" Mode="In" />
+    <Parameter Name="PRODUCTS_COUNT" Type="int" Mode="In" />
+  </Function>
+  <Function Name="current_ord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="OFFICES_SALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="OFF_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OFFICES_STATISTICS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="overdue_ord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="POSITION_STATISTICS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PROD_PRICE_AVAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="PROD_ID" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Exec_controlModelStoreContainer">
+    <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OFFICES" EntityType="Self.OFFICES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SALESREPRS" EntityType="Self.SALESREPRS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERS_CART" EntityType="Self.ORDERS_CART" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ORDERS_CART].[ORD_ID] AS [ORD_ID], 
+    [ORDERS_CART].[PROD_ID] AS [PROD_ID], 
+    [ORDERS_CART].[PROD_COUNT] AS [PROD_COUNT]
+    FROM [dbo].[ORDERS_CART] AS [ORDERS_CART]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="current_ordv" EntityType="Self.current_ordv" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [current_ordv].[ID] AS [ID], 
+    [current_ordv].[CUST] AS [CUST], 
+    [current_ordv].[REPRES] AS [REPRES], 
+    [current_ordv].[TOTAL_COST] AS [TOTAL_COST], 
+    [current_ordv].[ORDER_DATE] AS [ORDER_DATE], 
+    [current_ordv].[PLANNED_D_DAY] AS [PLANNED_D_DAY], 
+    [current_ordv].[PAY_DATE] AS [PAY_DATE], 
+    [current_ordv].[CUST_CONFIRM] AS [CUST_CONFIRM], 
+    [current_ordv].[SENDED] AS [SENDED], 
+    [current_ordv].[ENTER_COUNTR] AS [ENTER_COUNTR], 
+    [current_ordv].[POST_OFICE] AS [POST_OFICE], 
+    [current_ordv].[DELIVERED] AS [DELIVERED]
+    FROM [dbo].[current_ordv] AS [current_ordv]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DELIVERED_ORDERS" EntityType="Self.DELIVERED_ORDERS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DELIVERED_ORDERS].[ID] AS [ID], 
+    [DELIVERED_ORDERS].[PRODUCT] AS [PRODUCT], 
+    [DELIVERED_ORDERS].[CUST] AS [CUST], 
+    [DELIVERED_ORDERS].[ORDER_DATE] AS [ORDER_DATE], 
+    [DELIVERED_ORDERS].[DELIVERED] AS [DELIVERED]
+    FROM [dbo].[DELIVERED_ORDERS] AS [DELIVERED_ORDERS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="managers" EntityType="Self.managers" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [managers].[ID] AS [ID], 
+    [managers].[NAME] AS [NAME], 
+    [managers].[AGE] AS [AGE], 
+    [managers].[OFFICE] AS [OFFICE], 
+    [managers].[POSITION] AS [POSITION], 
+    [managers].[HIRE_DATE] AS [HIRE_DATE], 
+    [managers].[MANAGER] AS [MANAGER], 
+    [managers].[SALES] AS [SALES]
+    FROM [dbo].[managers] AS [managers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="overdue_ordv" EntityType="Self.overdue_ordv" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [overdue_ordv].[ID] AS [ID], 
+    [overdue_ordv].[CUST] AS [CUST], 
+    [overdue_ordv].[REPRES] AS [REPRES], 
+    [overdue_ordv].[TOTAL_COST] AS [TOTAL_COST], 
+    [overdue_ordv].[ORDER_DATE] AS [ORDER_DATE], 
+    [overdue_ordv].[PLANNED_D_DAY] AS [PLANNED_D_DAY], 
+    [overdue_ordv].[PAY_DATE] AS [PAY_DATE], 
+    [overdue_ordv].[CUST_CONFIRM] AS [CUST_CONFIRM], 
+    [overdue_ordv].[SENDED] AS [SENDED], 
+    [overdue_ordv].[ENTER_COUNTR] AS [ENTER_COUNTR], 
+    [overdue_ordv].[POST_OFICE] AS [POST_OFICE], 
+    [overdue_ordv].[DELIVERED] AS [DELIVERED]
+    FROM [dbo].[overdue_ordv] AS [overdue_ordv]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__SALESREPR__MANAG__31EC6D26" Association="Self.FK__SALESREPR__MANAG__31EC6D26">
+      <End Role="SALESREPRS" EntitySet="SALESREPRS" />
+      <End Role="SALESREPRS1" EntitySet="SALESREPRS" />
+    </AssociationSet>
+    <AssociationSet Name="HASREP" Association="Self.HASREP">
+      <End Role="SALESREPRS" EntitySet="SALESREPRS" />
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+    </AssociationSet>
+    <AssociationSet Name="ISFOR" Association="Self.ISFOR">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="ORDERS_CART" EntitySet="ORDERS_CART" />
+    </AssociationSet>
+    <AssociationSet Name="ORDER_FOR" Association="Self.ORDER_FOR">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="ORDERS_CART" EntitySet="ORDERS_CART" />
+    </AssociationSet>
+    <AssociationSet Name="PLACEDBY" Association="Self.PLACEDBY">
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="TAKENBY" Association="Self.TAKENBY">
+      <End Role="SALESREPRS" EntitySet="SALESREPRS" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="WORKSIN" Association="Self.WORKSIN">
+      <End Role="OFFICES" EntitySet="OFFICES" />
+      <End Role="SALESREPRS" EntitySet="SALESREPRS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

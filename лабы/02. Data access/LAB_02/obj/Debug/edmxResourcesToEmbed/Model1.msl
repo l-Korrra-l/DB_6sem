@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Exec_controlModelStoreContainer" CdmEntityContainer="Exec_controlEntities">
+    <EntitySetMapping Name="CUSTOMERS">
+      <EntityTypeMapping TypeName="Exec_controlModel.CUSTOMERS">
+        <MappingFragment StoreEntitySet="CUSTOMERS">
+          <ScalarProperty Name="CUST_NUM" ColumnName="CUST_NUM" />
+          <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+          <ScalarProperty Name="CUST_REP" ColumnName="CUST_REP" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OFFICES">
+      <EntityTypeMapping TypeName="Exec_controlModel.OFFICES">
+        <MappingFragment StoreEntitySet="OFFICES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="REGION" ColumnName="REGION" />
+          <ScalarProperty Name="SALES" ColumnName="SALES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERS">
+      <EntityTypeMapping TypeName="Exec_controlModel.ORDERS">
+        <MappingFragment StoreEntitySet="ORDERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CUST" ColumnName="CUST" />
+          <ScalarProperty Name="REPRES" ColumnName="REPRES" />
+          <ScalarProperty Name="TOTAL_COST" ColumnName="TOTAL_COST" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="PLANNED_D_DAY" ColumnName="PLANNED_D_DAY" />
+          <ScalarProperty Name="PAY_DATE" ColumnName="PAY_DATE" />
+          <ScalarProperty Name="CUST_CONFIRM" ColumnName="CUST_CONFIRM" />
+          <ScalarProperty Name="SENDED" ColumnName="SENDED" />
+          <ScalarProperty Name="ENTER_COUNTR" ColumnName="ENTER_COUNTR" />
+          <ScalarProperty Name="POST_OFICE" ColumnName="POST_OFICE" />
+          <ScalarProperty Name="DELIVERED" ColumnName="DELIVERED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTS">
+      <EntityTypeMapping TypeName="Exec_controlModel.PRODUCTS">
+        <MappingFragment StoreEntitySet="PRODUCTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="AVAIL" ColumnName="AVAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALESREPRS">
+      <EntityTypeMapping TypeName="Exec_controlModel.SALESREPRS">
+        <MappingFragment StoreEntitySet="SALESREPRS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="OFFICE" ColumnName="OFFICE" />
+          <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+          <ScalarProperty Name="HIRE_DATE" ColumnName="HIRE_DATE" />
+          <ScalarProperty Name="MANAGER" ColumnName="MANAGER" />
+          <ScalarProperty Name="SALES" ColumnName="SALES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Exec_controlModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERS_CART">
+      <EntityTypeMapping TypeName="Exec_controlModel.ORDERS_CART">
+        <MappingFragment StoreEntitySet="ORDERS_CART">
+          <ScalarProperty Name="ORD_ID" ColumnName="ORD_ID" />
+          <ScalarProperty Name="PROD_ID" ColumnName="PROD_ID" />
+          <ScalarProperty Name="PROD_COUNT" ColumnName="PROD_COUNT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="current_ordv">
+      <EntityTypeMapping TypeName="Exec_controlModel.current_ordv">
+        <MappingFragment StoreEntitySet="current_ordv">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CUST" ColumnName="CUST" />
+          <ScalarProperty Name="REPRES" ColumnName="REPRES" />
+          <ScalarProperty Name="TOTAL_COST" ColumnName="TOTAL_COST" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="PLANNED_D_DAY" ColumnName="PLANNED_D_DAY" />
+          <ScalarProperty Name="PAY_DATE" ColumnName="PAY_DATE" />
+          <ScalarProperty Name="CUST_CONFIRM" ColumnName="CUST_CONFIRM" />
+          <ScalarProperty Name="SENDED" ColumnName="SENDED" />
+          <ScalarProperty Name="ENTER_COUNTR" ColumnName="ENTER_COUNTR" />
+          <ScalarProperty Name="POST_OFICE" ColumnName="POST_OFICE" />
+          <ScalarProperty Name="DELIVERED" ColumnName="DELIVERED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DELIVERED_ORDERS">
+      <EntityTypeMapping TypeName="Exec_controlModel.DELIVERED_ORDERS">
+        <MappingFragment StoreEntitySet="DELIVERED_ORDERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
+          <ScalarProperty Name="CUST" ColumnName="CUST" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="DELIVERED" ColumnName="DELIVERED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="managers">
+      <EntityTypeMapping TypeName="Exec_controlModel.managers">
+        <MappingFragment StoreEntitySet="managers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="OFFICE" ColumnName="OFFICE" />
+          <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+          <ScalarProperty Name="HIRE_DATE" ColumnName="HIRE_DATE" />
+          <ScalarProperty Name="MANAGER" ColumnName="MANAGER" />
+          <ScalarProperty Name="SALES" ColumnName="SALES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="overdue_ordv">
+      <EntityTypeMapping TypeName="Exec_controlModel.overdue_ordv">
+        <MappingFragment StoreEntitySet="overdue_ordv">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CUST" ColumnName="CUST" />
+          <ScalarProperty Name="REPRES" ColumnName="REPRES" />
+          <ScalarProperty Name="TOTAL_COST" ColumnName="TOTAL_COST" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="PLANNED_D_DAY" ColumnName="PLANNED_D_DAY" />
+          <ScalarProperty Name="PAY_DATE" ColumnName="PAY_DATE" />
+          <ScalarProperty Name="CUST_CONFIRM" ColumnName="CUST_CONFIRM" />
+          <ScalarProperty Name="SENDED" ColumnName="SENDED" />
+          <ScalarProperty Name="ENTER_COUNTR" ColumnName="ENTER_COUNTR" />
+          <ScalarProperty Name="POST_OFICE" ColumnName="POST_OFICE" />
+          <ScalarProperty Name="DELIVERED" ColumnName="DELIVERED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ADDPROD_TO_CART" FunctionName="Exec_controlModel.Store.ADDPROD_TO_CART" />
+    <FunctionImportMapping FunctionImportName="current_ord" FunctionName="Exec_controlModel.Store.current_ord">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Exec_controlModel.current_ord_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CUST" ColumnName="CUST" />
+          <ScalarProperty Name="REPRES" ColumnName="REPRES" />
+          <ScalarProperty Name="TOTAL_COST" ColumnName="TOTAL_COST" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="PLANNED_D_DAY" ColumnName="PLANNED_D_DAY" />
+          <ScalarProperty Name="PAY_DATE" ColumnName="PAY_DATE" />
+          <ScalarProperty Name="CUST_CONFIRM" ColumnName="CUST_CONFIRM" />
+          <ScalarProperty Name="SENDED" ColumnName="SENDED" />
+          <ScalarProperty Name="ENTER_COUNTR" ColumnName="ENTER_COUNTR" />
+          <ScalarProperty Name="POST_OFICE" ColumnName="POST_OFICE" />
+          <ScalarProperty Name="DELIVERED" ColumnName="DELIVERED" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OFFICES_STATISTICS" FunctionName="Exec_controlModel.Store.OFFICES_STATISTICS" />
+    <FunctionImportMapping FunctionImportName="overdue_ord" FunctionName="Exec_controlModel.Store.overdue_ord">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Exec_controlModel.overdue_ord_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CUST" ColumnName="CUST" />
+          <ScalarProperty Name="REPRES" ColumnName="REPRES" />
+          <ScalarProperty Name="TOTAL_COST" ColumnName="TOTAL_COST" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="PLANNED_D_DAY" ColumnName="PLANNED_D_DAY" />
+          <ScalarProperty Name="PAY_DATE" ColumnName="PAY_DATE" />
+          <ScalarProperty Name="CUST_CONFIRM" ColumnName="CUST_CONFIRM" />
+          <ScalarProperty Name="SENDED" ColumnName="SENDED" />
+          <ScalarProperty Name="ENTER_COUNTR" ColumnName="ENTER_COUNTR" />
+          <ScalarProperty Name="POST_OFICE" ColumnName="POST_OFICE" />
+          <ScalarProperty Name="DELIVERED" ColumnName="DELIVERED" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="POSITION_STATISTICS" FunctionName="Exec_controlModel.Store.POSITION_STATISTICS" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Exec_controlModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Exec_controlModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Exec_controlModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Exec_controlModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Exec_controlModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Exec_controlModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Exec_controlModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Exec_controlModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Exec_controlModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
