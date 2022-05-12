@@ -11,6 +11,68 @@
     <NavigationProperty Name="SALESREPRS" Relationship="Self.HASREP" FromRole="CUSTOMERS" ToRole="SALESREPRS" />
     <NavigationProperty Name="ORDERS" Relationship="Self.PLACEDBY" FromRole="CUSTOMERS" ToRole="ORDERS" />
   </EntityType>
+  <EntityType Name="gadm36_blr_0">
+    <Key>
+      <PropertyRef Name="ogr_fid" />
+    </Key>
+    <Property Name="ogr_fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ogr_geometry" Type="Geometry" />
+    <Property Name="gid_0" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="name_0" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="gadm36_blr_1">
+    <Key>
+      <PropertyRef Name="ogr_fid" />
+    </Key>
+    <Property Name="ogr_fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ogr_geometry" Type="Geometry" />
+    <Property Name="gid_0" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="name_0" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="gid_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="name_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="varname_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="nl_name_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="type_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="engtype_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="cc_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="hasc_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OFFICES" Relationship="Self.off_pos" FromRole="gadm36_blr_1" ToRole="OFFICES" />
+  </EntityType>
+  <EntityType Name="gadm36_blr_2">
+    <Key>
+      <PropertyRef Name="ogr_fid" />
+    </Key>
+    <Property Name="ogr_fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ogr_geometry" Type="Geometry" />
+    <Property Name="gid_0" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="name_0" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="gid_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="name_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="nl_name_1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="gid_2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="name_2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="varname_2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="nl_name_2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="type_2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="engtype_2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="cc_2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="hasc_2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="geometry_columns">
+    <Key>
+      <PropertyRef Name="f_table_catalog" />
+      <PropertyRef Name="f_table_schema" />
+      <PropertyRef Name="f_table_name" />
+      <PropertyRef Name="f_geometry_column" />
+    </Key>
+    <Property Name="f_table_catalog" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="f_table_schema" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="f_table_name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="f_geometry_column" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="coord_dimension" Type="Int32" Nullable="false" />
+    <Property Name="srid" Type="Int32" Nullable="false" />
+    <Property Name="geometry_type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="OFFICES">
     <Key>
       <PropertyRef Name="ID" />
@@ -19,6 +81,8 @@
     <Property Name="CITY" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="REGION" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SALES" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="position" Type="Int32" />
+    <NavigationProperty Name="gadm36_blr_1" Relationship="Self.off_pos" FromRole="OFFICES" ToRole="gadm36_blr_1" />
     <NavigationProperty Name="SALESREPRS" Relationship="Self.WORKSIN" FromRole="OFFICES" ToRole="SALESREPRS" />
   </EntityType>
   <EntityType Name="ORDERS">
@@ -40,6 +104,14 @@
     <NavigationProperty Name="CUSTOMERS" Relationship="Self.PLACEDBY" FromRole="ORDERS" ToRole="CUSTOMERS" />
     <NavigationProperty Name="ORDERS_CART" Relationship="Self.ORDER_FOR" FromRole="ORDERS" ToRole="ORDERS_CART" />
     <NavigationProperty Name="SALESREPRS" Relationship="Self.TAKENBY" FromRole="ORDERS" ToRole="SALESREPRS" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Polygon" Type="Geography" />
   </EntityType>
   <EntityType Name="PRODUCTS">
     <Key>
@@ -68,6 +140,16 @@
     <NavigationProperty Name="ORDERS" Relationship="Self.TAKENBY" FromRole="SALESREPRS" ToRole="ORDERS" />
     <NavigationProperty Name="SALESREPRS1" Relationship="Self.FK__SALESREPR__MANAG__31EC6D26" FromRole="SALESREPRS" ToRole="SALESREPRS1" />
     <NavigationProperty Name="SALESREPRS2" Relationship="Self.FK__SALESREPR__MANAG__31EC6D26" FromRole="SALESREPRS1" ToRole="SALESREPRS" />
+  </EntityType>
+  <EntityType Name="spatial_ref_sys">
+    <Key>
+      <PropertyRef Name="srid" />
+    </Key>
+    <Property Name="srid" Type="Int32" Nullable="false" />
+    <Property Name="auth_name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="auth_srid" Type="Int32" />
+    <Property Name="srtext" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="proj4text" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -186,6 +268,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="off_pos">
+    <End Role="gadm36_blr_1" Type="Self.gadm36_blr_1" Multiplicity="0..1" />
+    <End Role="OFFICES" Type="Self.OFFICES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gadm36_blr_1">
+        <PropertyRef Name="ogr_fid" />
+      </Principal>
+      <Dependent Role="OFFICES">
+        <PropertyRef Name="position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="WORKSIN">
     <End Role="OFFICES" Type="Self.OFFICES" Multiplicity="0..1" />
     <End Role="SALESREPRS" Type="Self.SALESREPRS" Multiplicity="*" />
@@ -248,10 +342,16 @@
   </Association>
   <EntityContainer Name="Exec_controlEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" />
+    <EntitySet Name="gadm36_blr_0" EntityType="Self.gadm36_blr_0" />
+    <EntitySet Name="gadm36_blr_1" EntityType="Self.gadm36_blr_1" />
+    <EntitySet Name="gadm36_blr_2" EntityType="Self.gadm36_blr_2" />
+    <EntitySet Name="geometry_columns" EntityType="Self.geometry_columns" />
     <EntitySet Name="OFFICES" EntityType="Self.OFFICES" />
     <EntitySet Name="ORDERS" EntityType="Self.ORDERS" />
+    <EntitySet Name="Position" EntityType="Self.Position" />
     <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" />
     <EntitySet Name="SALESREPRS" EntityType="Self.SALESREPRS" />
+    <EntitySet Name="spatial_ref_sys" EntityType="Self.spatial_ref_sys" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="ORDERS_CART" EntityType="Self.ORDERS_CART" />
     <EntitySet Name="current_ordv" EntityType="Self.current_ordv" />
@@ -265,6 +365,10 @@
     <AssociationSet Name="PLACEDBY" Association="Self.PLACEDBY">
       <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
       <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="off_pos" Association="Self.off_pos">
+      <End Role="gadm36_blr_1" EntitySet="gadm36_blr_1" />
+      <End Role="OFFICES" EntitySet="OFFICES" />
     </AssociationSet>
     <AssociationSet Name="WORKSIN" Association="Self.WORKSIN">
       <End Role="OFFICES" EntitySet="OFFICES" />
@@ -286,12 +390,27 @@
       <End Role="SALESREPRS" EntitySet="SALESREPRS" />
       <End Role="SALESREPRS1" EntitySet="SALESREPRS" />
     </AssociationSet>
+    <FunctionImport Name="AddPoint">
+      <Parameter Name="a" Mode="In" Type="Int32" />
+      <Parameter Name="b" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="ADDPROD_TO_CART">
       <Parameter Name="ORDER_ID" Mode="In" Type="Int32" />
       <Parameter Name="PRODUCT_ID" Mode="In" Type="String" />
       <Parameter Name="PRODUCTS_COUNT" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="AllProducts" />
     <FunctionImport Name="current_ord" ReturnType="Collection(Exec_controlModel.current_ord_Result)" />
+    <FunctionImport Name="GetCurrent">
+      <Parameter Name="dateStart" Mode="In" Type="DateTime" />
+      <Parameter Name="dateEnd" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetOverdue">
+      <Parameter Name="dateStart" Mode="In" Type="DateTime" />
+      <Parameter Name="dateEnd" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="intersection" ReturnType="Collection(Exec_controlModel.intersection_Result)" />
+    <FunctionImport Name="OFFICES_Dist" />
     <FunctionImport Name="OFFICES_STATISTICS" />
     <FunctionImport Name="overdue_ord" ReturnType="Collection(Exec_controlModel.overdue_ord_Result)" />
     <FunctionImport Name="POSITION_STATISTICS" />
@@ -339,6 +458,10 @@
     <Property Type="DateTime" Name="ENTER_COUNTR" Nullable="true" />
     <Property Type="DateTime" Name="POST_OFICE" Nullable="true" />
     <Property Type="DateTime" Name="DELIVERED" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="intersection_Result">
+    <Property Type="String" Name="Пересечение" Nullable="true" />
+    <Property Type="String" Name="Исключение" Nullable="true" />
   </ComplexType>
   <ComplexType Name="overdue_ord_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

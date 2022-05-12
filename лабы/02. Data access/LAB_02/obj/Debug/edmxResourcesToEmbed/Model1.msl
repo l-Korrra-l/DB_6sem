@@ -11,6 +11,68 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="gadm36_blr_0">
+      <EntityTypeMapping TypeName="Exec_controlModel.gadm36_blr_0">
+        <MappingFragment StoreEntitySet="gadm36_blr_0">
+          <ScalarProperty Name="ogr_fid" ColumnName="ogr_fid" />
+          <ScalarProperty Name="ogr_geometry" ColumnName="ogr_geometry" />
+          <ScalarProperty Name="gid_0" ColumnName="gid_0" />
+          <ScalarProperty Name="name_0" ColumnName="name_0" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gadm36_blr_1">
+      <EntityTypeMapping TypeName="Exec_controlModel.gadm36_blr_1">
+        <MappingFragment StoreEntitySet="gadm36_blr_1">
+          <ScalarProperty Name="ogr_fid" ColumnName="ogr_fid" />
+          <ScalarProperty Name="ogr_geometry" ColumnName="ogr_geometry" />
+          <ScalarProperty Name="gid_0" ColumnName="gid_0" />
+          <ScalarProperty Name="name_0" ColumnName="name_0" />
+          <ScalarProperty Name="gid_1" ColumnName="gid_1" />
+          <ScalarProperty Name="name_1" ColumnName="name_1" />
+          <ScalarProperty Name="varname_1" ColumnName="varname_1" />
+          <ScalarProperty Name="nl_name_1" ColumnName="nl_name_1" />
+          <ScalarProperty Name="type_1" ColumnName="type_1" />
+          <ScalarProperty Name="engtype_1" ColumnName="engtype_1" />
+          <ScalarProperty Name="cc_1" ColumnName="cc_1" />
+          <ScalarProperty Name="hasc_1" ColumnName="hasc_1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gadm36_blr_2">
+      <EntityTypeMapping TypeName="Exec_controlModel.gadm36_blr_2">
+        <MappingFragment StoreEntitySet="gadm36_blr_2">
+          <ScalarProperty Name="ogr_fid" ColumnName="ogr_fid" />
+          <ScalarProperty Name="ogr_geometry" ColumnName="ogr_geometry" />
+          <ScalarProperty Name="gid_0" ColumnName="gid_0" />
+          <ScalarProperty Name="name_0" ColumnName="name_0" />
+          <ScalarProperty Name="gid_1" ColumnName="gid_1" />
+          <ScalarProperty Name="name_1" ColumnName="name_1" />
+          <ScalarProperty Name="nl_name_1" ColumnName="nl_name_1" />
+          <ScalarProperty Name="gid_2" ColumnName="gid_2" />
+          <ScalarProperty Name="name_2" ColumnName="name_2" />
+          <ScalarProperty Name="varname_2" ColumnName="varname_2" />
+          <ScalarProperty Name="nl_name_2" ColumnName="nl_name_2" />
+          <ScalarProperty Name="type_2" ColumnName="type_2" />
+          <ScalarProperty Name="engtype_2" ColumnName="engtype_2" />
+          <ScalarProperty Name="cc_2" ColumnName="cc_2" />
+          <ScalarProperty Name="hasc_2" ColumnName="hasc_2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="geometry_columns">
+      <EntityTypeMapping TypeName="Exec_controlModel.geometry_columns">
+        <MappingFragment StoreEntitySet="geometry_columns">
+          <ScalarProperty Name="f_table_catalog" ColumnName="f_table_catalog" />
+          <ScalarProperty Name="f_table_schema" ColumnName="f_table_schema" />
+          <ScalarProperty Name="f_table_name" ColumnName="f_table_name" />
+          <ScalarProperty Name="f_geometry_column" ColumnName="f_geometry_column" />
+          <ScalarProperty Name="coord_dimension" ColumnName="coord_dimension" />
+          <ScalarProperty Name="srid" ColumnName="srid" />
+          <ScalarProperty Name="geometry_type" ColumnName="geometry_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="OFFICES">
       <EntityTypeMapping TypeName="Exec_controlModel.OFFICES">
         <MappingFragment StoreEntitySet="OFFICES">
@@ -18,6 +80,7 @@
           <ScalarProperty Name="CITY" ColumnName="CITY" />
           <ScalarProperty Name="REGION" ColumnName="REGION" />
           <ScalarProperty Name="SALES" ColumnName="SALES" />
+          <ScalarProperty Name="position" ColumnName="position" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -36,6 +99,15 @@
           <ScalarProperty Name="ENTER_COUNTR" ColumnName="ENTER_COUNTR" />
           <ScalarProperty Name="POST_OFICE" ColumnName="POST_OFICE" />
           <ScalarProperty Name="DELIVERED" ColumnName="DELIVERED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Position">
+      <EntityTypeMapping TypeName="Exec_controlModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Polygon" ColumnName="Polygon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -60,6 +132,17 @@
           <ScalarProperty Name="HIRE_DATE" ColumnName="HIRE_DATE" />
           <ScalarProperty Name="MANAGER" ColumnName="MANAGER" />
           <ScalarProperty Name="SALES" ColumnName="SALES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spatial_ref_sys">
+      <EntityTypeMapping TypeName="Exec_controlModel.spatial_ref_sys">
+        <MappingFragment StoreEntitySet="spatial_ref_sys">
+          <ScalarProperty Name="srid" ColumnName="srid" />
+          <ScalarProperty Name="auth_name" ColumnName="auth_name" />
+          <ScalarProperty Name="auth_srid" ColumnName="auth_srid" />
+          <ScalarProperty Name="srtext" ColumnName="srtext" />
+          <ScalarProperty Name="proj4text" ColumnName="proj4text" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -144,7 +227,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddPoint" FunctionName="Exec_controlModel.Store.AddPoint" />
     <FunctionImportMapping FunctionImportName="ADDPROD_TO_CART" FunctionName="Exec_controlModel.Store.ADDPROD_TO_CART" />
+    <FunctionImportMapping FunctionImportName="AllProducts" FunctionName="Exec_controlModel.Store.AllProducts" />
     <FunctionImportMapping FunctionImportName="current_ord" FunctionName="Exec_controlModel.Store.current_ord">
       <ResultMapping>
         <ComplexTypeMapping TypeName="Exec_controlModel.current_ord_Result">
@@ -163,6 +248,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCurrent" FunctionName="Exec_controlModel.Store.GetCurrent" />
+    <FunctionImportMapping FunctionImportName="GetOverdue" FunctionName="Exec_controlModel.Store.GetOverdue" />
+    <FunctionImportMapping FunctionImportName="intersection" FunctionName="Exec_controlModel.Store.intersection">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Exec_controlModel.intersection_Result">
+          <ScalarProperty Name="Пересечение" ColumnName="Пересечение" />
+          <ScalarProperty Name="Исключение" ColumnName="Исключение" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OFFICES_Dist" FunctionName="Exec_controlModel.Store.OFFICES_Dist" />
     <FunctionImportMapping FunctionImportName="OFFICES_STATISTICS" FunctionName="Exec_controlModel.Store.OFFICES_STATISTICS" />
     <FunctionImportMapping FunctionImportName="overdue_ord" FunctionName="Exec_controlModel.Store.overdue_ord">
       <ResultMapping>

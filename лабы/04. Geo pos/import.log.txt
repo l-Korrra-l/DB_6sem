@@ -1,0 +1,5 @@
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\04\relief>ogr2ogr -overwrite -f MSSQLSpatial -lco "GEOM_TYPE=geometry" -a_srs "EPSG:4326" "MSSQL:server=.;database=exec_control;trusted_connection=yes" "gadm36_BLR_0.shp"
+
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\04\relief>ogr2ogr -overwrite -f MSSQLSpatial -lco "GEOM_TYPE=geometry" -a_srs "EPSG:4326" "MSSQL:server=.;database=exec_control;trusted_connection=yes" "gadm36_BLR_2.shp"
+
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\04\relief>ogr2ogr -overwrite -f MSSQLSpatial -lco "GEOM_TYPE=geometry" -a_srs "EPSG:4326" "MSSQL:server=.;database=exec_control;trusted_connection=yes" "gadm36_BLR_1.shp"

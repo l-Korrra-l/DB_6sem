@@ -24,7 +24,9 @@ namespace LAB_02
         public string CITY { get; set; }
         public string REGION { get; set; }
         public decimal SALES { get; set; }
+        public Nullable<int> position { get; set; }
     
+        public virtual gadm36_blr_1 gadm36_blr_1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SALESREPRS> SALESREPRS { get; set; }
     }

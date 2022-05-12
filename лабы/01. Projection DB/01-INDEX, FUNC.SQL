@@ -40,7 +40,7 @@ update Products set price = 0 where price <=0;
 update Products set avail = 0 where avail <=0;
 end;
 RETURN;
-
+drop trigger minus_priceon products;
 
 CREATE OR ALTER TRIGGER SALESREPRS_INSERT_PRINT
 ON SALESREPRS

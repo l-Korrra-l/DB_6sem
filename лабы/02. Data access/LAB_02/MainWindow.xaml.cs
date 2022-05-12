@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 
+
 namespace LAB_02
 {
     /// <summary>
@@ -23,6 +24,7 @@ namespace LAB_02
     {
         public MainWindow()
         {
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             InitializeComponent();
         }
 
@@ -196,6 +198,7 @@ namespace LAB_02
         }
         #endregion Office
 
+        #region Current Overdue
         private void curOrders_Click(object sender, RoutedEventArgs e)
         {
             usersGridOrder.ItemsSource = db.current_ordv.ToList();
@@ -205,5 +208,28 @@ namespace LAB_02
         {
             usersGridOrder.ItemsSource = db.overdue_ordv.ToList();
         }
+        #endregion Current Overdue
+
+        #region Lab4
+
+        private void interesect_Click(object sender, RoutedEventArgs e)
+        {
+            geogrGrid.ItemsSource = db.intersection();
+        }
+
+        private void dist_Click(object sender, RoutedEventArgs e)
+        {
+            db = new Exec_controlEntities();
+            geogrGrid.ItemsSource = db.Position.ToList();
+            db.OFFICES_Dist();
+        }
+
+        private void addPoint_Click(object sender, RoutedEventArgs e)
+        {
+            db.AddPoint(String.IsNullOrEmpty(Xtext.Text) ? 3:Convert.ToInt32(Xtext.Text) , String.IsNullOrEmpty(Ytext.Text)? 4:Convert.ToInt32(Ytext.Text));
+            db = new Exec_controlEntities();
+            geogrGrid.ItemsSource = db.Position.ToList();
+        }
+        #endregion Lab4
     }
 }

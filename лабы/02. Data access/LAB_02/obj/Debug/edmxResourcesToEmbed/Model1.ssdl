@@ -9,6 +9,67 @@
     <Property Name="CUST_REP" Type="int" />
     <Property Name="CREDIT_LIMIT" Type="decimal" Precision="9" Scale="2" />
   </EntityType>
+  <EntityType Name="gadm36_blr_0">
+    <Key>
+      <PropertyRef Name="ogr_fid" />
+    </Key>
+    <Property Name="ogr_fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogr_geometry" Type="geometry" />
+    <Property Name="gid_0" Type="nvarchar" MaxLength="80" />
+    <Property Name="name_0" Type="nvarchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="gadm36_blr_1">
+    <Key>
+      <PropertyRef Name="ogr_fid" />
+    </Key>
+    <Property Name="ogr_fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogr_geometry" Type="geometry" />
+    <Property Name="gid_0" Type="nvarchar" MaxLength="80" />
+    <Property Name="name_0" Type="nvarchar" MaxLength="80" />
+    <Property Name="gid_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="name_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="varname_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="nl_name_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="type_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="engtype_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="cc_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="hasc_1" Type="nvarchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="gadm36_blr_2">
+    <Key>
+      <PropertyRef Name="ogr_fid" />
+    </Key>
+    <Property Name="ogr_fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogr_geometry" Type="geometry" />
+    <Property Name="gid_0" Type="nvarchar" MaxLength="80" />
+    <Property Name="name_0" Type="nvarchar" MaxLength="80" />
+    <Property Name="gid_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="name_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="nl_name_1" Type="nvarchar" MaxLength="80" />
+    <Property Name="gid_2" Type="nvarchar" MaxLength="80" />
+    <Property Name="name_2" Type="nvarchar" MaxLength="80" />
+    <Property Name="varname_2" Type="nvarchar" MaxLength="80" />
+    <Property Name="nl_name_2" Type="nvarchar" MaxLength="80" />
+    <Property Name="type_2" Type="nvarchar" MaxLength="80" />
+    <Property Name="engtype_2" Type="nvarchar" MaxLength="80" />
+    <Property Name="cc_2" Type="nvarchar" MaxLength="80" />
+    <Property Name="hasc_2" Type="nvarchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="geometry_columns">
+    <Key>
+      <PropertyRef Name="f_table_catalog" />
+      <PropertyRef Name="f_table_schema" />
+      <PropertyRef Name="f_table_name" />
+      <PropertyRef Name="f_geometry_column" />
+    </Key>
+    <Property Name="f_table_catalog" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="f_table_schema" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="f_table_name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="f_geometry_column" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="coord_dimension" Type="int" Nullable="false" />
+    <Property Name="srid" Type="int" Nullable="false" />
+    <Property Name="geometry_type" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
   <EntityType Name="OFFICES">
     <Key>
       <PropertyRef Name="ID" />
@@ -17,6 +78,7 @@
     <Property Name="CITY" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="REGION" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="SALES" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="position" Type="int" />
   </EntityType>
   <EntityType Name="ORDERS">
     <Key>
@@ -45,6 +107,14 @@ warning 6002: The table/view 'Exec_control.dbo.ORDERS_CART' does not have a prim
     <Property Name="PROD_ID" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="PROD_COUNT" Type="int" />
   </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Polygon" Type="geography" />
+  </EntityType>
   <EntityType Name="PRODUCTS">
     <Key>
       <PropertyRef Name="ID" />
@@ -66,6 +136,16 @@ warning 6002: The table/view 'Exec_control.dbo.ORDERS_CART' does not have a prim
     <Property Name="HIRE_DATE" Type="date" Nullable="false" />
     <Property Name="MANAGER" Type="int" />
     <Property Name="SALES" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spatial_ref_sys">
+    <Key>
+      <PropertyRef Name="srid" />
+    </Key>
+    <Property Name="srid" Type="int" Nullable="false" />
+    <Property Name="auth_name" Type="varchar" MaxLength="256" />
+    <Property Name="auth_srid" Type="int" />
+    <Property Name="srtext" Type="varchar" MaxLength="2048" />
+    <Property Name="proj4text" Type="varchar" MaxLength="2048" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -192,6 +272,18 @@ warning 6002: The table/view 'Exec_control.dbo.overdue_ordv' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="off_pos">
+    <End Role="gadm36_blr_1" Type="Self.gadm36_blr_1" Multiplicity="0..1" />
+    <End Role="OFFICES" Type="Self.OFFICES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gadm36_blr_1">
+        <PropertyRef Name="ogr_fid" />
+      </Principal>
+      <Dependent Role="OFFICES">
+        <PropertyRef Name="position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="ORDER_FOR">
     <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="0..1" />
     <End Role="ORDERS_CART" Type="Self.ORDERS_CART" Multiplicity="*" />
@@ -242,13 +334,28 @@ warning 6002: The table/view 'Exec_control.dbo.overdue_ordv' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="AddPoint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="a" Type="int" Mode="In" />
+    <Parameter Name="b" Type="int" Mode="In" />
+  </Function>
   <Function Name="ADDPROD_TO_CART" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ORDER_ID" Type="int" Mode="In" />
     <Parameter Name="PRODUCT_ID" Type="char" Mode="In" />
     <Parameter Name="PRODUCTS_COUNT" Type="int" Mode="In" />
   </Function>
+  <Function Name="AllProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="current_ord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetCurrent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dateStart" Type="datetime" Mode="In" />
+    <Parameter Name="dateEnd" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GetOverdue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dateStart" Type="datetime" Mode="In" />
+    <Parameter Name="dateEnd" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="intersection" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="OFFICES_Dist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="OFFICES_SALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
     <Parameter Name="OFF_ID" Type="int" Mode="In" />
   </Function>
@@ -257,6 +364,10 @@ warning 6002: The table/view 'Exec_control.dbo.overdue_ordv' does not have a pri
   <Function Name="POSITION_STATISTICS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="PROD_PRICE_AVAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
     <Parameter Name="PROD_ID" Type="char" Mode="In" />
+  </Function>
+  <Function Name="RelocateFile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="pathfrom" Type="nvarchar" Mode="In" />
+    <Parameter Name="pathto" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -290,10 +401,16 @@ warning 6002: The table/view 'Exec_control.dbo.overdue_ordv' does not have a pri
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="Exec_controlModelStoreContainer">
     <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gadm36_blr_0" EntityType="Self.gadm36_blr_0" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gadm36_blr_1" EntityType="Self.gadm36_blr_1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gadm36_blr_2" EntityType="Self.gadm36_blr_2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="geometry_columns" EntityType="Self.geometry_columns" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OFFICES" EntityType="Self.OFFICES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SALESREPRS" EntityType="Self.SALESREPRS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="spatial_ref_sys" EntityType="Self.spatial_ref_sys" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ORDERS_CART" EntityType="Self.ORDERS_CART" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -366,6 +483,10 @@ warning 6002: The table/view 'Exec_control.dbo.overdue_ordv' does not have a pri
     <AssociationSet Name="ISFOR" Association="Self.ISFOR">
       <End Role="PRODUCTS" EntitySet="PRODUCTS" />
       <End Role="ORDERS_CART" EntitySet="ORDERS_CART" />
+    </AssociationSet>
+    <AssociationSet Name="off_pos" Association="Self.off_pos">
+      <End Role="gadm36_blr_1" EntitySet="gadm36_blr_1" />
+      <End Role="OFFICES" EntitySet="OFFICES" />
     </AssociationSet>
     <AssociationSet Name="ORDER_FOR" Association="Self.ORDER_FOR">
       <End Role="ORDERS" EntitySet="ORDERS" />

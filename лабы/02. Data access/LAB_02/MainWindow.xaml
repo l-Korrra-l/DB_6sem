@@ -146,6 +146,29 @@
                     <Button x:Name="allOffices" Content="all Offices" Margin="333,163,324,188" Click="allOffices_Click" />
                 </Grid>
             </TabItem>
+            <TabItem Header="Lab4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="147*"/>
+                        <ColumnDefinition Width="641*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="X" Content="X" Margin="23,10,24.39,338"/>
+                    <TextBox x:Name="Xtext" HorizontalAlignment="Left" Height="31" Margin="97,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.ColumnSpan="2"/>
+
+                    <Label x:Name="Y" Content="Y" Margin="23,55,32.39,296"/>
+                    <TextBox x:Name="Ytext" HorizontalAlignment="Left" Height="31" Margin="97,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Grid.ColumnSpan="2"/>
+
+                    <Label x:Name="Res" Content="Y" Margin="23,55,32.39,296"/>
+                    <TextBox x:Name="Restext" HorizontalAlignment="Left" Height="153" Margin="23,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252" Grid.ColumnSpan="2" IsEnabled="False"/>
+
+                    <DataGrid x:Name="geogrGrid" HorizontalAlignment="Left" Height="214" Margin="-4,227,0,-49" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="intersect" Content="intersect" Margin="185.61,10,324,338" Click="interesect_Click" Grid.Column="1"></Button>
+                    <Button x:Name="dist" Content="dist" Margin="185.8,69,323,279" Click="dist_Click" Grid.Column="1"></Button>
+                    <Button x:Name="addPoint" Content="addPoint" Margin="186.8,136,323,212" Click="addPoint_Click" Grid.Column="1"></Button>
+                </Grid>
+            </TabItem>
+            <TextBox x:Name="Ytext_Copy" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178"/>
         </TabControl>
     </Grid>
 </Window>

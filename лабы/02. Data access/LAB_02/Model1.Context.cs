@@ -28,16 +28,35 @@ namespace LAB_02
         }
     
         public virtual DbSet<CUSTOMERS> CUSTOMERS { get; set; }
+        public virtual DbSet<gadm36_blr_0> gadm36_blr_0 { get; set; }
+        public virtual DbSet<gadm36_blr_1> gadm36_blr_1 { get; set; }
+        public virtual DbSet<gadm36_blr_2> gadm36_blr_2 { get; set; }
+        public virtual DbSet<geometry_columns> geometry_columns { get; set; }
         public virtual DbSet<OFFICES> OFFICES { get; set; }
         public virtual DbSet<ORDERS> ORDERS { get; set; }
+        public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<PRODUCTS> PRODUCTS { get; set; }
         public virtual DbSet<SALESREPRS> SALESREPRS { get; set; }
+        public virtual DbSet<spatial_ref_sys> spatial_ref_sys { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<ORDERS_CART> ORDERS_CART { get; set; }
         public virtual DbSet<current_ordv> current_ordv { get; set; }
         public virtual DbSet<DELIVERED_ORDERS> DELIVERED_ORDERS { get; set; }
         public virtual DbSet<managers> managers { get; set; }
         public virtual DbSet<overdue_ordv> overdue_ordv { get; set; }
+    
+        public virtual int AddPoint(Nullable<int> a, Nullable<int> b)
+        {
+            var aParameter = a.HasValue ?
+                new ObjectParameter("a", a) :
+                new ObjectParameter("a", typeof(int));
+    
+            var bParameter = b.HasValue ?
+                new ObjectParameter("b", b) :
+                new ObjectParameter("b", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddPoint", aParameter, bParameter);
+        }
     
         public virtual int ADDPROD_TO_CART(Nullable<int> oRDER_ID, string pRODUCT_ID, Nullable<int> pRODUCTS_COUNT)
         {
@@ -56,9 +75,50 @@ namespace LAB_02
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADDPROD_TO_CART", oRDER_IDParameter, pRODUCT_IDParameter, pRODUCTS_COUNTParameter);
         }
     
+        public virtual int AllProducts()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AllProducts");
+        }
+    
         public virtual ObjectResult<current_ord_Result> current_ord()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<current_ord_Result>("current_ord");
+        }
+    
+        public virtual int GetCurrent(Nullable<System.DateTime> dateStart, Nullable<System.DateTime> dateEnd)
+        {
+            var dateStartParameter = dateStart.HasValue ?
+                new ObjectParameter("dateStart", dateStart) :
+                new ObjectParameter("dateStart", typeof(System.DateTime));
+    
+            var dateEndParameter = dateEnd.HasValue ?
+                new ObjectParameter("dateEnd", dateEnd) :
+                new ObjectParameter("dateEnd", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetCurrent", dateStartParameter, dateEndParameter);
+        }
+    
+        public virtual int GetOverdue(Nullable<System.DateTime> dateStart, Nullable<System.DateTime> dateEnd)
+        {
+            var dateStartParameter = dateStart.HasValue ?
+                new ObjectParameter("dateStart", dateStart) :
+                new ObjectParameter("dateStart", typeof(System.DateTime));
+    
+            var dateEndParameter = dateEnd.HasValue ?
+                new ObjectParameter("dateEnd", dateEnd) :
+                new ObjectParameter("dateEnd", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetOverdue", dateStartParameter, dateEndParameter);
+        }
+    
+        public virtual ObjectResult<intersection_Result> intersection()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<intersection_Result>("intersection");
+        }
+    
+        public virtual int OFFICES_Dist()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("OFFICES_Dist");
         }
     
         public virtual int OFFICES_STATISTICS()

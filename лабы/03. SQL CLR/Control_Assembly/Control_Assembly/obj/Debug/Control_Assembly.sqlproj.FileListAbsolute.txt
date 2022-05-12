@@ -1,0 +1,9 @@
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\bin\Debug\Control_Assembly.dacpac
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\bin\Debug\Control_Assembly.dll
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\bin\Debug\Control_Assembly.pdb
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\obj\Debug\Control_Assembly.dll
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\obj\Debug\Control_Assembly.pdb
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\obj\Debug\Model.xml
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\obj\Debug\refactor.xml
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\obj\Debug\postdeploy.sql
+C:\Users\User\Documents\Study_6sem\ПББВП\DB_6sem\лабы\03. SQL CLR\Control_Assembly\Control_Assembly\obj\Debug\predeploy.sql
