@@ -1,0 +1,22 @@
+CUST_NUM,COMPANY,CUST_REP,CREDIT_LIMIT
+2101,Jones Mfg.,14,65000.00
+2102,First Corp.,101,65000
+2103,Acme Mfg.,105,50000
+2105,AAA Investments,101,45000
+2106,Fred Lewis Corp.,67,65000
+2107,Ace International,17,35000
+2108,Holm \& Landis,18,55000
+2109,Chen Associates,15,25000
+2111,JCP Inc.,105,50000
+2112,Zetacorp,14,50000
+2113,Ian \& Schmidt,10,20000
+2114,Orion Corp.,67,20000
+2115,Smithson Corp.,101,2000
+2117,J.P. Sinclair,14,35000
+2118,Midwest Systems,14,60000
+2119,Solomon Inc.,18,25000
+2120,Rico Enterprises,67,50000
+2121,QMA Assoc.,15,45000
+2122,Three Way Lines,105,30000
+2123,Carter \& Sons,67,40000
+2124,Peter Brothers,14,40000

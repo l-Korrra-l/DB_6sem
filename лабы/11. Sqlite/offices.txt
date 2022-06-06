@@ -1,0 +1,6 @@
+ID,CITY,REGION,SALES
+11,New York,Eastern,692637.00
+12,Chicago,Eastern,735042.00
+13,Atlanta,Eastern,367911.00
+21,Los Angeles,Western,835915.00
+22,Denver,Western,186042.00

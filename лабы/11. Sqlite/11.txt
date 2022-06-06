@@ -1,0 +1,50 @@
+C:\Windows\System32\cmd.exe
+sqlite3 DatabaseName.db  --new database
+---db
+create table discount(
+   	id integer primary key AUTOINCREMENT not null,
+   	start_d date default ((datetime('now','localtime'))),
+   	end_d date default ((datetime('now', '+5 day'))),
+   	prod_id nchar(5) not null,
+  	perc decimal(3,2) not null);
+-----
+.tables --all tables
+select *from discount;
+---insert
+insert into discount(prod_id, perc) values ('2A44G', 0.05);
+insert into discount(prod_id, perc) values ('2A44L', 0.05);
+insert into discount(prod_id, perc) values ('2A44R', 0.1);
+insert into discount(prod_id, perc) values ('2A45C', 0.2);
+insert into discount(prod_id, perc) values ('41001', 0.15);
+insert into discount(prod_id, perc) values ('41002', 0.15);
+insert into discount(prod_id, perc) values ('887H ', 0.15);
+
+--view
+create view disc_less_15 as select *from discount where perc <0.15;
+select *from disc_less_15;
+
+--trigger
+create trigger check_date after insert on discount
+begin
+update discount set end_d = datetime(start_d, '+5 day') where end_d <= start_d;
+end;
+
+insert into discount(prod_id, perc, start_d, end_d) values ('887H', 0.05, (datetime('now','localtime')), (datetime('now','localtime')));
+
+
+
+-----offices
+CREATE TABLE OFFICES(
+	[ID] integer primary key not null,
+	[CITY] [varchar](15) NOT NULL,
+	[REGION] [varchar](10) NOT NULL,
+	[SALES] [decimal](9, 2) NOT NULL);
+----products
+CREATE TABLE PRODUCTS(
+	[ID] [char](5) NOT NULL,
+	[DESCRIPTION] [varchar](20) NOT NULL,
+	[PRICE] [decimal](9, 2) NOT NULL,
+	[AVAIL] [int] NOT NULL);
+
+---import
+.import orders.txt orders

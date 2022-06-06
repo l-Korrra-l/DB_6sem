@@ -1,0 +1,25 @@
+ID,DESCRIPTION,PRICE,AVAIL
+114  ,Motor Mount,243,00,15
+115  ,Housing,28,00,15
+2A44G,Hinge Pin,350,00,14
+2A44L,Left Hinge,4500,00,12
+2A44R,Right Hinge,4500,00,12
+2A45C,Ratchet Link,79,00,210
+41001,Size 1 Wiget,55,00,277
+41002,Size 2 Widget,76,00,167
+41003,Size 3 Widget,14,00,207
+41004,Size 4 Widget,117,00,139
+4100X,Widget Adjuster,25,00,37
+4100Y,Widget Remover,2750,00,25
+4100Z,Widget Installer,2500,00,28
+41089,Retainer,225,00,78
+41627,Plate,180,00,0
+773C ,300-lb Brace,975,00,28
+775C ,500-lb Brace,1425,00,5
+779C ,900-LB Brace,1875,00,9
+887H ,Brace Holder,54,00,223
+887P ,Brace Pin,250,00,24
+887X ,Brace Retainer,475,00,32
+XK47 ,Reducer,355,00,38
+XK48 ,Reducer,134,00,203
+XK48A,Reducer,177,00,37
